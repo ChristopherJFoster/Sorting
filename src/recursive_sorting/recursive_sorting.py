@@ -17,23 +17,17 @@ def merge(arrA, arrB):
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort(arr):
-    print(arr)
     # TO-DO
+    if len(arr) <= 1:
+        return arr
 
-    if len(arr) > 1:
-        merge_sort([arr[i] for i in range(0, len(arr)) if i < len(arr) // 2])
-        merge_sort([arr[i] for i in range(0, len(arr)) if i >= len(arr) // 2])
+    arrA = [arr[i] for i in range(len(arr)) if i < len(arr) // 2]
+    arrB = [arr[i] for i in range(len(arr)) if i >= len(arr) // 2]
 
-    return arr
+    arrA = merge_sort(arrA)
+    arrB = merge_sort(arrB)
 
-
-arr = [5, 1, 2, 1, 0]
-
-# print(merge_sort(arr))
-
-arrA = [1, 3, 6, 90]
-arrB = [23, 24, 100]
-print(merge(arrA, arrB))
+    return merge(arrA, arrB)
 
 
 # STRETCH: implement an in-place merge sort algorithm
